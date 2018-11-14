@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>本地硬盘检索</title>
+    <link rel="icon" type="image/icon" href="http://www.icontuku.com/png/etao-ux-fonts/font-337.png">
+    <link rel="bookmark" type="image/icon" href="http://www.icontuku.com/png/etao-ux-fonts/font-337.png">
+</head>
+<body>
+<style type="text/css">
+    body {
+        font-family: 微软雅黑;
+        color: white;
+        background-color: black;
+    }
+</style>
+<h2 align="center" style="color: lightcyan"><img src="http://www.icontuku.com/png/etao-ux-fonts/font-337.png" width="36"
+                                                 height="36" align="center">本地硬盘检索</h2>
+<h5 align="center" style="color: lightcyan">
+    <form action="/index/" method="post">
+        请输入检索的内容
+        <input type="text" name="str" style="width: 400px">
+        <input type="submit" value="检索" style="width: 100px">
+    </form>
+</h5>
+<h3 align="center" style="color: lavenderblush">检索结果</h3>
+<h4 align="right" style="color: aliceblue">检索到相关结果：{{ resnum }}个，检索用时：{{ time }} s</h4>
+<style type="text/css">
+    /* Border styles */
+    #table-1 thead, #table-1 tr {
+        border-top-width: 2px;
+        border-top-style: solid;
+        border-top-color: aqua;
+    }
+
+    #table-1 {
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-top-color: aqua;
+    }
+
+    /* Padding and font style */
+    #table-1 td, #table-1 th {
+        padding: 5px 10px;
+        font-size: 12px;
+        font-family: 微软雅黑;
+        color: black;
+    }
+
+    /* Alternating background colors */
+    #table-1 tr:nth-child(even) {
+        background: azure;
+    }
+
+    #table-1 tr:nth-child(odd) {
+        background: aquamarine;
+    }
+
+    #table-1 th:nth-child(odd) {
+        background: midnightblue;
+        color: white;
+    }
+
+    #table-1 th:nth-child(even) {
+        background: midnightblue;
+        color: white;
+    }
+</style>
+<table id="table-1" align="center">
+    <thead>
+    <tr>
+        <th width="30" align="center">序号</th>
+        <th width="970" align="center">数据</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for lines in data %}
+        <tr>
+            <td align="center">{{ lines.num }}</td>
+            <td>
+                <table id="table-1" width="970">
+                    <tbody>
+                    <tr><td align="left" height="18px" style="font-size: 16px;color: blue;font-weight: bold">{{ lines.filename }}</td></tr>
+                    <tr><td align="left" height="40px" style="font-size: 13px;color: black">{{ lines.file }}</td></tr>
+                    <tr><td align="right" height="12px" style="font-size: 12px;color: green">{{ lines.filepath }}————2018-11-13</td></tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

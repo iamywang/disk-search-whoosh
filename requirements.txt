@@ -1,0 +1,6 @@
+whoosh == 2.7.4
+django == 2.1.3
+pytz == 2018.7
+jieba == 0.39
+python-docx == 0.8.7
+lxml == 4.2.5
