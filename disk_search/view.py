@@ -1,11 +1,8 @@
 import time
 
-import pgpy
 from django.shortcuts import render
 from whoosh.index import open_dir
 from whoosh.qparser import QueryParser
-
-
 
 
 def index(request):
@@ -37,8 +34,5 @@ def search(key_word):
             count = count + 1
             result_item = dict(result_item)
             result_item["num"] = count
-            result_item["file"] = pgpy.PGPMessage.new(result_item["file"])
-            result_item["filename"] = pgpy.PGPMessage.new(result_item["filename"])
-            result_item["filepath"] = pgpy.PGPMessage.new(result_item["filepath"])
             result_list.append(result_item)
     return result_list
