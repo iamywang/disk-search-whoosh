@@ -3,4 +3,4 @@ django == 2.2.13
 pytz == 2018.7
 jieba == 0.39
 python-docx == 0.8.7
-lxml == 4.2.5
+lxml == 4.6.2
